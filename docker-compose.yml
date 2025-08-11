@@ -1,0 +1,13 @@
+# docker-compose up
+# This command builds (use only if no code changes)
+
+# docker-compose up --build
+# This command builds (use only if code changes)
+
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    ports: 
+      - "5173:5173"
