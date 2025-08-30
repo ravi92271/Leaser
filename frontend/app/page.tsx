@@ -16,19 +16,28 @@ function ImageCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setImage((prevImage) => (prevImage + 1) % IMAGES.length);
-    }, 4000);
+    }, 5300);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div>
-      <Image
-        src={IMAGES[image]}
-        alt={`Carousel Image ${image + 1}`}
-        width={600}
-        height={400}
-        className="rounded-lg"
-      />
+    <div className="flex relative w-[600px] h-[400px] overflow-hidden rounded-lg shadow-lg">
+      {IMAGES.map((src, index) => (
+        <div
+          key={index + src}
+          className={`${
+            index === image ? "opacity-100" : "opacity-0"
+          } transition-opacity duration-1000 ease-in-out absolute`}
+        >
+          <Image
+            src={src}
+            alt={`Carousel Image ${index + 1}`}
+            width={600}
+            height={400}
+            className="scale-100 animate-kenburns"
+          />
+        </div>
+      ))}
     </div>
   );
 }
@@ -36,21 +45,47 @@ function ImageCarousel() {
 export default function Home() {
   return (
     <main>
-      <header className="flex items-center justify-left px-4 py-2">
-        {/* <Image
-          src=""
+      {/* Header */}
+      <header className="flex flex-row items-center px-4 py-2">
+        <Image
+          src="" //No logo yet
           alt="Leaser Logo"
           width={100}
           height={100}
-          className="rounded-full"
-        /> */}
+          className="rounded-full justify-left"
+        />
+        <button className="bg-brightpink rounded-full px-2">Login</button>
       </header>
-      <div className="flex items-center justify-center">
-        <h1>Welcome to Leaser</h1>
-        <ImageCarousel />
-      </div>
+
+      <section className="flex min-h-screen items-start px-6 pt-20 lg:translate-x-30">
+        {/* Wrapper with max width */}
+        <div className="flex w-full max-w-7xl mx-auto items-center justify-between gap-20">
+          {/* Text Section */}
+          <div className="flex flex-col items-center max-w-mg space-y-5">
+            <h1 className="text-4xl font-semibold">Welcome To Leaser</h1>
+            <p className="text-lg">
+              Find and transfer or sublease leases easily
+            </p>
+            <nav>
+              <button className="font-medium bg-brightpink rounded-full px-2">
+                Get Started
+              </button>
+            </nav>
+          </div>
+
+          {/* Image Carousel */}
+          <div className="flex-1 max-w-2xl">
+            <ImageCarousel />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer>
+        <ul></ul>
+      </footer>
     </main>
   );
 }
-// Main Content // Welcome Message // Moving images // Login Button //
+// Welcome Message // Moving images // Login Button //
 // Example listings below // Footer
