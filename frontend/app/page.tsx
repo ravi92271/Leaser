@@ -57,22 +57,25 @@ export default function Home() {
         <button className="bg-brightpink rounded-full px-2">Login</button>
       </header>
 
+      {/* Hero Section */}
       <section className="flex min-h-screen items-start px-6 pt-20 lg:translate-x-30">
         {/* Wrapper with max width */}
-        <div className="flex w-full max-w-7xl mx-auto items-center justify-between gap-20">
+        <div className="flex w-full max-w-7xl justify-between gap-20">
           {/* Text Section */}
-          <div className="flex flex-col items-center max-w-mg space-y-5">
-            <h1 className="text-4xl font-semibold">Welcome To Leaser</h1>
+          <div className="flex flex-col max-w-mg space-y-5">
+            <h1 className="text-4xl font-semibold">
+              Student Lease Transfers, Made Simple
+            </h1>
             <p className="text-lg">
-              Find and transfer or sublease leases easily
+              Find a subletter or take over a lease in minutes—student-only,
+              verified.
             </p>
-            <nav>
-              <button className="font-medium bg-brightpink rounded-full px-2">
+            <nav className="flex space-x-4">
+              <button className="font-medium bg-brightpink rounded-full px-7">
                 Get Started
               </button>
             </nav>
           </div>
-
           {/* Image Carousel */}
           <div className="flex-1 max-w-2xl">
             <ImageCarousel />
