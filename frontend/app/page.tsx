@@ -8,6 +8,7 @@ const IMAGES = [
   "/portal_images/apartment3.JPG",
   "/portal_images/apartment4.JPG",
   "/portal_images/apartment5.JPG",
+  "/portal_images/apartment6.JPG",
 ] as const;
 
 function ImageCarousel() {
